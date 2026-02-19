@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+
+    body, html { height: 100%; overflow: hidden; }
+
+    /* Animated gradient background */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(-45deg, #0f172a, #1e3a8a, #6d28d9, #0ea5e9);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+      z-index: -1;
+    }
+
+    /* Floating circles animation */
+    .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 30%, rgba(255,255,255,.15) 0 2px, transparent 3px),
+                        radial-gradient(circle at 70% 60%, rgba(255,255,255,.12) 0 3px, transparent 4px),
+                        radial-gradient(circle at 40% 80%, rgba(255,255,255,.1) 0 2px, transparent 3px);
+      animation: float 18s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200px); }
+    }
+
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #fff;
+      text-align: center;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 28px;
+    }
+
+    .login-box {
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.35);
+      padding: 30px 26px;
+      border-radius: 16px;
+      width: 300px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .title { font-size: 20px; margin-bottom: 14px; }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      margin: 8px 0;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    }
+
+    .apple { background: #000; color: #fff; }
+    .facebook { background: #1877f2; color: #fff; }
+    .guest { background: #666; color: #fff; }
+    .google { background: #db4437; color: #fff; }
+    .twitter { background: #1da1f2; color: #fff; }
+
+    details { margin-top: 10px; }
+    summary { cursor: pointer; opacity: .9; }
+
+    .small-links {
+      margin-top: 12px;
+      font-size: 13px;
+      opacity: 0.9;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .small-links a { color: #fff; text-decoration: none; }
+    .small-links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="logo">GROUP</div>
+
+  <div class="container">
+    <div class="login-box">
+      <div class="title">🔐 Welcome Back</div>
+
+      <button class="btn apple" onclick="loginApple()"> Sign in with Apple 🍎</button>
+      <button class="btn facebook" onclick="loginFacebook()">📘 Sign in with Facebook</button>
+      <button class="btn guest" onclick="guestLogin()">👤 Continue as Guest</button>
+
+      <details>
+        <summary>⚙️ More options</summary>
+        <button class="btn google" onclick="loginGoogle()">🟢 Sign in with Google</button>
+        <button class="btn twitter" onclick="loginTwitter()">🐦 Sign in with Twitter</button>
+      </details>
+
+      <div class="small-links">
+        <a href="#">Terms</a>
+        <a href="#">More</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function loginApple() {
+      window.open("https://appleid.apple.com/sign-in", "_blank");
+    }
+
+    function loginFacebook() {
+      window.open("https://www.facebook.com/login", "_blank");
+    }
+
+    function loginGoogle() {
+      window.open("https://accounts.google.com/signin", "_blank");
+    }
+
+    function loginTwitter() {
+      window.open("https://twitter.com/login", "_blank");
+    }
+
+    function guestLogin() {
+      alert("Welcome, Guest! Enjoy your stay 🎉");
+    }
+  </script>
+</body>
+</html>
